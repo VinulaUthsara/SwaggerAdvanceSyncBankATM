@@ -71,42 +71,6 @@ paths:
        404:
           description: An account with the specified pin was not found
   
-  /deposit/{pin}:
-    parameters: 
-    - name: pin
-      in: path
-      description: The pin of customers account
-      required: true
-      type: integer
-      minimum: 1
-    post:
-      operationId: PUT_deposit-pin
-      summary: Returns customer withdrawal information
-      tags:
-        - Deposit
-      responses:
-       200:
-         description: A deposit object
-         schema:
-          type: object
-          properties:
-            account_number:
-              type: number
-              example: 112233445566
-            account_name:
-              type: string
-              example: Vinula Uthsara
-            deposit_amount:
-              type: string
-              example: Rs. 20,000.00
-       400:
-          description: The specified pin is invalid
-       404:
-          description: An account with the specified pin was not found
-
-
-
-
 
 
 
