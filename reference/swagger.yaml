@@ -1,0 +1,81 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: 'SwaggerAdvanceSync'
+  description: 'advance sync api with github'
+  
+paths: 
+  /accountinfo/{pin}:
+    parameters: 
+    - name: pin
+      in: path
+      description: The pin of customers account
+      required: true
+      type: integer
+      minimum: 1
+    get:
+      operationId: GET_accountinfo-pin
+      summary: Returns customer account information
+      tags:
+        - Accountinfo
+      responses:
+       200:
+         description: A customer account object
+         schema:
+          type: object
+          properties:
+            account_number:
+              type: number
+              example: 112233445566
+            account_name:
+              type: string
+              example: Vinula Uthsara
+            account_balance:
+              type: string
+              example: Rs. 500,000.00
+       400:
+          description: The specified pin is invalid
+       404:
+          description: An account with the specified pin was not found
+        
+  /withdrawal/{pin}:
+    parameters: 
+    - name: pin
+      in: path
+      description: The pin of customers account
+      required: true
+      type: integer
+      minimum: 1
+    post:
+      operationId: PUT_withdrawal-pin
+      summary: Returns customer withdrawal information
+      tags:
+        - Withdrawal
+      responses:
+       200:
+         description: A withdrawal object
+         schema:
+          type: object
+          properties:
+            account_number:
+              type: number
+              example: 112233445566
+            account_name:
+              type: string
+              example: Vinula Uthsara
+            withdrawal_amount:
+              type: string
+              example: Rs. 20,000.00
+       400:
+          description: The specified pin is invalid
+       404:
+          description: An account with the specified pin was not found
+  
+
+
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /Vinula/SwaggerAdvanceSyncBankATM/1.0.0
+schemes:
+ - https
